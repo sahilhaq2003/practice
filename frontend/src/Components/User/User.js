@@ -1,15 +1,18 @@
 import React from 'react'
 import './User.css';
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function User({ user }) {
-  
-  if (!user) {
-    return <div>Loading user data...</div>;
+  const { _id, name, email, address, age } = user;
+
+  const history = useNavigate();
+  const deleteHandler = async () => {
+    await axios.delete(`http://localhost:5000/users/${_id}`)
+      .then(res => res.data)
+      .then(() => window.location.reload());
   }
 
-  const { _id, name, email, address, age } = user;
   return (
     <div className="user-card">
       <h2>User Display</h2>
@@ -19,10 +22,9 @@ function User({ user }) {
       <h2>Age : {age}</h2>
       <h2>Address : {address}</h2>
       <Link to={`/userdetails/${_id}`}>
-      <button >Update</button>
+        <button>Update</button>
       </Link>
-     
-      <button>Delete</button>
+      <button onClick={deleteHandler}>Delete</button>
     </div>
   );
 }
