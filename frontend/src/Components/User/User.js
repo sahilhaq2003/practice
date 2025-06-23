@@ -1,4 +1,5 @@
 import React from 'react'
+import './User.css';
 
 
 function User({ user }) {
@@ -9,7 +10,7 @@ function User({ user }) {
 
   const { _id, name, email, address, age } = user;
   return (
-    <div>
+    <div className="user-card">
       <h2>User Display</h2>
       <h2>ID : {_id}</h2>
       <h2>Name : {name}</h2>

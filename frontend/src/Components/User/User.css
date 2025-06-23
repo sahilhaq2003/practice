@@ -1,0 +1,37 @@
+/* User.css */
+
+.user-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #fff;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.user-card:hover {
+  transform: scale(1.01);
+}
+
+.user-card h2 {
+  font-size: 18px;
+  color: #333;
+  margin: 8px 0;
+}
+
+.user-card button {
+  padding: 8px 16px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.user-card button:hover {
+  background-color: #0056b3;
+}
