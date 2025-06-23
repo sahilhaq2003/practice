@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import Nav from './Components/Nav/Nav';
 import AddUser from './Components/AddUser/AddUser';
 import Users from './Components/UserDetails/Users';
+import UpdateUser from './Components/UpdateUser/UpdateUser';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/mainhome" element={<Home />} />
           <Route path="/adduser" element={<AddUser/>} />
           <Route path="/userdetails" element={<Users/>} />
+          <Route path="/userdetails/:id" element={<UpdateUser/>} />
           
         </Routes>
       </React.Fragment>

@@ -1,5 +1,6 @@
 import React from 'react'
 import './User.css';
+import { Link } from 'react-router-dom';
 
 
 function User({ user }) {
@@ -17,7 +18,10 @@ function User({ user }) {
       <h2>Email : {email}</h2>
       <h2>Age : {age}</h2>
       <h2>Address : {address}</h2>
-      <button>Update</button>
+      <Link to={`/userdetails/${_id}`}>
+      <button >Update</button>
+      </Link>
+     
       <button>Delete</button>
     </div>
   );
