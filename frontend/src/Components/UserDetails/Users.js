@@ -27,6 +27,7 @@ function Users() {
     <div>
       <h1>User Details Page</h1>
       <div ref={ComponentsRef}>
+        
         {users && users.length > 0 ? (
           users.map((user, i) => (
             <div key={i}>
@@ -42,5 +43,4 @@ function Users() {
     </div>
   );
 }
-
 export default Users;
