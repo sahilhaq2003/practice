@@ -41,4 +41,25 @@ app.post('/register', async (req, res) => {
 });
 
 
+//Login
 
+app.post('/login', async (req, res) => {
+  const { email, password } = req.body;
+  try{
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.send({error: "User Not Found" });
+    }
+    if (user.password === password) {
+      return res.json({status: "ok", message: "User login successful" });
+    }else{
+      return res.json({status: "error", error: "Invalid credentials" });
+    }
+
+  }catch(err){
+    console.error(err);
+    res.status(500).json({status: "error", error: "Internal Server Error" });
+  }
+ 
+    
+});
