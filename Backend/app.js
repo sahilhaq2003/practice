@@ -20,3 +20,25 @@ mongoose.connect("mongodb+srv://admin:cm8tMswD4Nbbp6w6@cluster0.6s6wqoz.mongodb.
     });
   })
   .catch((err) => console.log(err));
+
+//call register model
+require('./Models/Register');
+//call login model
+const User =mongoose.model('Register');
+app.post('/register', async (req, res) => {
+  const { name, email, password } = req.body;
+  try{
+    await User.create({
+       name, email, password
+      
+      });
+      res.send({status : "ok", message: "User registered successfully"});
+  }catch(err){
+    res.send({status: "error", error: "User already exists"});
+  }
+
+
+});
+
+
+
