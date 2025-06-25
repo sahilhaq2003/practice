@@ -30,6 +30,12 @@ function Nav() {
             </Link>
         </li>
 
+        <li className='home-ll'>
+            <Link to='/log' className='home-a'>
+            <h1>Login</h1>
+            </Link>
+        </li>
+
       </ul>
     </div>
   )
