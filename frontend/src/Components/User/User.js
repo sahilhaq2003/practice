@@ -7,6 +7,7 @@ function User({ user }) {
   const { _id, name, email, address, age } = user;
 
   const history = useNavigate();
+
   const deleteHandler = async () => {
     await axios.delete(`http://localhost:5000/users/${_id}`)
       .then(res => res.data)
@@ -30,3 +31,4 @@ function User({ user }) {
 }
 
 export default User
+

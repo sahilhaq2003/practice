@@ -1,20 +1,32 @@
-
-/* Users.css */
-
-/* Add this to your existing stylesheet */
+input[type="text"][name="search"] {
+  width: 300px;
+  padding: 10px;
+  margin: 20px 10px 20px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
 
 button {
-  margin-top: 20px;
   padding: 10px 20px;
-  background-color: #4CAF50; /* Green */
+  background-color: #4CAF50; /* Green color */
   color: white;
   border: none;
-  border-radius: 6px;
-  font-size: 16px;
+  border-radius: 5px;
   cursor: pointer;
+  font-size: 16px;
+  margin-right: 10px;
   transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #388e3c; /* Darker green on hover */
+  background-color: #45a049;
+}
+
+.download-button {
+  background-color: #2196F3; /* Blue color */
+}
+
+.download-button:hover {
+  background-color: #0b7dda;
 }

@@ -23,9 +23,49 @@ function Users() {
     onAfterPrint: () => alert('User Report Successfully Downloaded!'),
   });
 
+  const [searchQuery, setSearchQuery] = useState('');
+  const [noResults, setNoResults] = useState(false);
+
+  const handleSearch = () => {
+    fetchHandler().then((data) => {
+      const filteredUsers = data.users.filter((user) =>
+        Object.values(user).some((value) =>
+          value.toString().toLowerCase().includes(searchQuery.toLowerCase())
+        )
+      );
+      setUsers(filteredUsers);
+      setNoResults(filteredUsers.length === 0);
+    });
+  }
+
+  const handleSendReport = () => {
+
+    const phoneNumber = "+94767589002";
+    const message = `selected User Reports`
+    const WhatsAppUrl = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)
+
+    }`;
+    window.open(WhatsAppUrl, '_blank');
+  }
+
   return (
     <div>
       <h1>User Details Page</h1>
+      <input onChange ={(e) => setSearchQuery(e.target.value)}
+        type ="text" 
+        name ="search"
+        placeholder="Search Users Details">
+      </input>
+      <button onClick={handleSearch}>Search</button>
+
+      {
+        noResults ? (
+          <div>
+            <p>No user Found</p>
+          </div>
+        ) :(
+      
+
       <div ref={ComponentsRef}>
         
         {users && users.length > 0 ? (
@@ -39,7 +79,11 @@ function Users() {
         )}
 
       </div>
+
+      )}
+
       <button className= "download-button" onClick={handlePrint}>Download Report</button>
+      <button className="whatsapp-button" onClick={handleSendReport}>Send Report via WhatsApp</button>
     </div>
   );
 }
